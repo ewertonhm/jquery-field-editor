@@ -17,15 +17,45 @@
                 <tbody>
                     <?php foreach ($contacts as $contact): ?>
                         <tr>
-                            <td><?=$contact->id?></td>
-                            <td><?=$contact->fname?></td>
-                            <td><?=$contact->lname?></td>
-                            <td><?=$contact->email?></td>
-                            <td><?=$contact->cell_phone?></td>
-                            <td><?=$contact->home_phone?></td>
+                            <td><p><?=$contact->id?></p></td>
+                            <td><p class="oneClickEdit" data-id="<?=$contact->id?>" data-field="fname" data-input="input"><?=$contact->fname?></p></td>
+                            <td><p class="oneClickEdit" data-id="<?=$contact->id?>" data-field="lname" data-input="input"><?=$contact->lname?></p></td>
+                            <td><p class="oneClickEdit" data-id="<?=$contact->id?>" data-field="email" data-input="input"><?=$contact->email?></p></td>
+                            <td><p class="oneClickEdit" data-id="<?=$contact->id?>" data-field="cell_phone" data-input="input"><?=$contact->cell_phone?></p></td>
+                            <td><p class="oneClickEdit" data-id="<?=$contact->id?>" data-field="home_phone" data-input="input"><?=$contact->home_phone?></p></td>
                         </tr>
                     <?php endforeach; ?>   
                 </tbody>
             </table>
         </div>
+        <p id="message"></p>
+        <script>
+            function alertMessage(msg){
+                clearTimeout(window.timer);
+                $('#message').html(msg);
+                windows.timer = setTimeout(function(){$('#message').html('&nbsp;');randomMessage();},5000);
+                
+            }
+            
+            function randomMessage(){
+                var msg = ['Hello','Welcome Back!','I missed you','Do you need to update a contact?','I\'m lonely...','My Name is Robert Paulson','They all float down here...',
+                '\"Our great depression is our lives\"','Please talk to me...','Hey! Listem!','Get your stinking paws off me, you dammed durt ape!','You have my axe!','Chewie, we\'re home',
+                'They call it a Royale with cheese','They\'re here!','My precious'];
+            var msg = msgs[Math.floor(Math.random()*msgs.length)];
+            alertMessage(msg);
+            }
+            
+            $('.oneClickEdit').oneClickEdit({url : 'parser.php'});
+            
+            $('td').each(function(){
+                var w = $(this).css('width');
+                $this.css('width',w);
+            });
+            
+            $('document').ready(function(){
+                randomMessage();
+            });
+            
+            
+        </script>
 <?php require_once 'layout/footer.pHp'; ?>
