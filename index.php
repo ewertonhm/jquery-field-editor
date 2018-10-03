@@ -4,6 +4,7 @@
     $contacts = $db->find('contacts',[
         'order' => 'lname, fname'
     ]);
+    
     require_once 'layout/header.php';
 ?>
 
