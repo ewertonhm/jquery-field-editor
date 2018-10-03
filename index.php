@@ -4,10 +4,10 @@
     $contacts = $db->find('contacts',[
         'order' => 'lname, fname'
     ]);
-    require_once 'layout reader.php';
+    require_once 'layout/header.php';
 ?>
 
-        <h1 class="text center oneClickEdit" data-id="6" data-field="title" data-input="input">My Contacts</h1><hr>
+        <h1 class="text-center oneClickEdit" data-id="6" data-field="title" data-input="input">My Contacts</h1><hr>
         <div class="col-md-8 col-md-offset-2">
             <p id="message" class="bg-info info text-center">&nbsp;</p>
             <table class="table table-bordered table-striped">
@@ -28,4 +28,4 @@
                 </tbody>
             </table>
         </div>
-<?php require_once 'layout/footer.pgp'; ?>
+<?php require_once 'layout/footer.pHp'; ?>
