@@ -4,19 +4,9 @@
     $contacts = $db->find('contacts',[
         'order' => 'lname, fname'
     ]);
+    require_once 'layout reader.php';
 ?>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
+
         <h1 class="text center oneClickEdit" data-id="6" data-field="title" data-input="input">My Contacts</h1><hr>
         <div class="col-md-8 col-md-offset-2">
             <p id="message" class="bg-info info text-center">&nbsp;</p>
@@ -33,8 +23,9 @@ and open the template in the editor.
                             <td><?=$contact->email?></td>
                             <td><?=$contact->cell_phone?></td>
                             <td><?=$contact->home_phone?></td>
+                        </tr>
+                    <?php endforeach; ?>   
                 </tbody>
             </table>
         </div>
-    </body>
-</html>
+<?php require_once 'layout/footer.pgp'; ?>
