@@ -34,12 +34,12 @@
             function alertMessage(msg){
                 clearTimeout(window.timer);
                 $('#message').html(msg);
-                windows.timer = setTimeout(function(){$('#message').html('&nbsp;');randomMessage();},5000);
+                window.timer = setTimeout(function(){$('#message').html('&nbsp;');randomMessage();},5000);
                 
             }
             
             function randomMessage(){
-                var msg = ['Hello','Welcome Back!','I missed you','Do you need to update a contact?','I\'m lonely...','My Name is Robert Paulson','They all float down here...',
+                var msgs = ['Hello','Welcome Back!','I missed you','Do you need to update a contact?','I\'m lonely...','My Name is Robert Paulson','They all float down here...',
                 '\"Our great depression is our lives\"','Please talk to me...','Hey! Listem!','Get your stinking paws off me, you dammed durt ape!','You have my axe!','Chewie, we\'re home',
                 'They call it a Royale with cheese','They\'re here!','My precious'];
             var msg = msgs[Math.floor(Math.random()*msgs.length)];
