@@ -9,7 +9,7 @@ plugin makes an AJAX call to your endpoint.
 * Step 1. Load plugin after you load jQuery
 
 ```javascript
-  <script type="text/javascript" src="/js/one_click_edit.js"></script>
+  <script type="text/javascript" src="/js/edit.js"></script>
 ```
 
 * Step 2. Add HTML element
