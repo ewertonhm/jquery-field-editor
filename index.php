@@ -8,7 +8,7 @@
     require_once 'layout/header.php';
 ?>
 
-        <h1 class="text-center oneClickEdit" data-id="6" data-field="title" data-input="input">My Contacts</h1><hr>
+        <h1 class="text-center oneClickEdit" data-id="6" data-field="title" data-input="input">Cadastrados</h1><hr>
         <div class="col-md-8 col-md-offset-2">
             <p id="message" class="bg-info info text-center">&nbsp;</p>
             <table class="table table-bordered table-striped">
@@ -30,7 +30,16 @@
             </table>
         </div>
         <p id="message"></p>
-        <script>
+            <script>
+            function oneClickSuccess(resp){
+                var r = JSON.parse(resp);
+                if(r.success){
+                    alertMessage("I have updated your contact, sir!");
+                }else{
+                    alertMessage("oops... something has gone wrong.");
+                }
+            }    
+                
             function alertMessage(msg){
                 clearTimeout(window.timer);
                 $('#message').html(msg);
@@ -46,17 +55,11 @@
             alertMessage(msg);
             }
             
-            $('.oneClickEdit').oneClickEdit({url : 'parser.php'});
+            $('.oneClickEdit').oneClickEdit({url : 'parser.php'},oneClickSuccess);
             
-            $('td').each(function(){
-                var w = $(this).css('width');
-                $this.css('width',w);
-            });
             
             $('document').ready(function(){
                 randomMessage();
             });
-            
-            
-        </script>
-<?php require_once 'layout/footer.pHp'; ?>
+            </script>
+<?php require_once 'layout/footer.php'; ?>
